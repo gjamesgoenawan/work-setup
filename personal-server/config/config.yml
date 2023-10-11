@@ -1,0 +1,22 @@
+landing:
+  env: "ps"
+  port: 80
+
+notebook:
+  env: "jptb"
+  port: 8888
+  dir: 
+    nt: "%USERPROFILE%"
+    posix: "~"
+
+tensorboard:
+  env: "jptb"
+  port: 8886
+  logdir: "runs"
+  dir: 
+    nt: "%USERPROFILE%"
+    posix: "~"
+
+motd: [
+  "Gejems"
+]

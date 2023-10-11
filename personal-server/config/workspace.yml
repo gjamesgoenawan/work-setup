@@ -1,0 +1,26 @@
+session_name: workspace
+windows:
+- window_name: statistics
+  layout: tiled
+  panes: 
+    - htop
+    - nvtop
+
+- window_name: servers
+  layout: tiled
+  shell_command_before:
+      - source ~/.bashrc
+      - clear
+  panes:
+    - shell_command:
+      - cd ~
+      - conda activate jptb
+      - jupyter notebook --config /home/apr-admin/personal-server/config/jupyter_server_config.py --no-browser --port 8888
+    - shell_command:
+      - cd ~
+      - conda activate jptb
+      - tensorboard --logdir=runs --host 0.0.0.0 --port 8886
+    - shell_command:
+      - conda activate ps
+      - sudo env PATH=$PATH python landing.py
+    - 
