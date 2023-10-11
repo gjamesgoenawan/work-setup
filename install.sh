@@ -16,15 +16,15 @@ HOMEDIR="$( cd ~ "$( dirname "$0" )" && pwd )"
 sudo id -u
 
 msg "Installing Dependencies 🏗️"
-sudo apt update -qq
-sudo apt install git tmux tmuxp curl htop nvtop build-essential net-tools snap -y -qq
+sudo apt update
+sudo apt install git tmux tmuxp curl htop nvtop build-essential net-tools snap -y
 
 msg "Installing Spotify 🎶"
 sudo snap install spotify
 
 # ssh
 msg "Installing OpenSSH 📡"
-sudo apt install openssh-server -y -qq
+sudo apt install openssh-server -y
 sudo systemctl enable ssh
 udo ufw allow ssh
 
@@ -45,7 +45,7 @@ conda config --set auto_activate_base false
 msg "Installing Cloudflare-Warp VPN 📶"
 curl https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
-sudo apt-get update -qq && sudo apt-get install cloudflare-warp -qq 
+sudo apt-get update && sudo apt-get install cloudflare-warp
 
 # rustdesk
 msg "Installing RustDesk 🖥️"
