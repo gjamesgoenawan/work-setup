@@ -1,15 +1,19 @@
 #!/bin/bash
 msg()
 {
-clear
-printf "*****************************************\n\n"
-printf "          Work Setup Script 1.0\n\n"
-printf "*****************************************\n\n"
-echo $1
+numlines=$(tput lines)
+echo -eq "\ec\e7\e[0;0H*****************************************"
+echo -e "\e[2;0H          Work Setup Script 1.0"
+echo -e "\e[3;0H*****************************************"
+echo -e "\e[4;0H$1\n\n\n\n\n"
+echo -e "\e[6;$((numlines))r\e[5;0H"
 }
+
+
 
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 HOMEDIR="$( cd ~ "$( dirname "$0" )" && pwd )"
+sudo id -u
 
 msg "Installing Dependencies 🏗️"
 sudo apt update -qq
