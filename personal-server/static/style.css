@@ -9,7 +9,7 @@ body{
     width:80%;
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 47%;
     transform: translate(-50%, -50%);
     z-index: 1;
 
@@ -18,9 +18,9 @@ body{
 #motd {
     color: white;
     font-family: 'Montserrat';
-    font-size: 10vmin;
+    font-size: 80px;
     animation: lights 5s 750ms linear infinite;
-    padding: 30 30 30 30;
+    padding: 30 30 1vmax 30;
   }
 
 #bg-wrap {
@@ -32,7 +32,7 @@ body{
 }
 
 .glow-on-hover {
-    width: 220px;
+    width: 210px;
     height: 70px;
     border: none;
     outline: none;
@@ -41,10 +41,10 @@ body{
     cursor: pointer;
     position: relative;
     z-index: 0;
-    margin: 15 15 15 15;
-    border-radius: 11px;
+    margin: 13 13 13 13;
+    border-radius: 30px;
     font-family: 'Montserrat';
-    font-size: 22px;
+    font-size: 21px;
 }
 
 .glow-on-hover:before {
@@ -139,4 +139,9 @@ body{
     
   }
   
+  @media screen and (max-width: 800px) {
+    #motd {
+      font-size: 15vmin;
+    }
+  }
  
