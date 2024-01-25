@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 msg()
 {
@@ -18,7 +18,7 @@ sudo id -u
 
 msg "Installing Dependencies 🏗️"
 sudo apt update
-sudo apt install dconf-cli curl git tmux tmuxp curl htop nvtop build-essential net-tools snap libxdo3 -y
+sudo apt install dconf-cli curl git tmux tmuxp curl htop build-essential net-tools snap libxdo3 conky -y
 
 cat preferences/gnome-terminal.preferences | dconf load /org/gnome/terminal/
 if [ "$(printf "23.04\n$CURRENTVER" | sort -t '.' -k 1,1n -k 2,2n | tail -n 1)" = "$CURRENTVER" ]; then
@@ -71,11 +71,16 @@ rm conda.sh
 . ~/miniconda3/etc/profile.d/conda.sh
 conda create --name ps python=3.11 -y
 conda activate ps
-pip install flask pyyaml
+pip install flask pyyaml pynvml
 conda deactivate 
 conda create --name jptb python=3.11 -y
 conda activate jptb
 pip install notebook tensorboard tensorboardX
+
+# Configure Conky
+msg "Configuring Conky"
+git clone https://github.com/jxai/lean-conky-config.git
+cp preferences/lean_conky_configuration.conf lean-conky-config/local.conf
 
 # setup cf warp
 msg "Authenticate Zero-Trust Team 🎗️"
