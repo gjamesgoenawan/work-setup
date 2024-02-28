@@ -49,7 +49,13 @@ windows:
     - shell_command:
       - conda activate $CONF_landing_env
       - sudo env PATH="$"PATH python landing.py
-    - """ >> config/workspace.yml
+    - shell_command:
+      - cd ../lean-conky-config
+      - conda activate ps
+      - ./start-lcc.sh
+      - conda deactivate
+      - code-server
+    """ >> config/workspace.yml
 
 tmux kill-session -t workspace
 tmuxp load -d config/workspace.yml

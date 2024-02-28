@@ -23,4 +23,10 @@ windows:
     - shell_command:
       - conda activate ps
       - sudo env PATH=$PATH python landing.py
-    - 
+    - shell_command:
+      - cd ../lean-conky-config
+      - conda activate ps
+      - ./start-lcc.sh
+      - conda deactivate
+      - code-server
+    

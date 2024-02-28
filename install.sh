@@ -4,7 +4,7 @@ msg()
 {
 numlines=$(tput lines)
 echo -eq "\ec\e7\e[0;0H*****************************************"
-echo -e "\e[2;0H      Gejems Work Setup Script 0.7"
+echo -e "\e[2;0H      Gejems Work Setup Script 0.8"
 echo -e "\e[3;0H*****************************************"
 echo -e "\e[4;0H$1\n"
 echo -e "\e[6;$((numlines))r\e[5;0H"
