@@ -21,11 +21,7 @@ sudo apt update
 sudo apt install dconf-cli curl git tmux tmuxp curl htop build-essential net-tools snap libxdo3 conky -y
 
 cat preferences/gnome-terminal.preferences | dconf load /org/gnome/terminal/
-if [ "$(printf "23.04\n$CURRENTVER" | sort -t '.' -k 1,1n -k 2,2n | tail -n 1)" = "$CURRENTVER" ]; then
-  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-else
-  gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-fi
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' && gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark' || gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
 
 msg "Installing Spotify 🎶"
